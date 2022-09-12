@@ -53,7 +53,7 @@ export class BillDatatableComponent implements OnInit {
   onDelete(row) {
     this.BGService.deletePost(row.id).subscribe((id: any) => {
       this.rows = this.temp.filter(d => d.id !== id);
-      this.route.navigate(['']);;
+      this.ngOnInit();
     });
     // this.route.navigate([''])
   }
