@@ -1,0 +1,51 @@
+<div>
+
+
+    <div>
+        <h1>Electricity Bill </h1>
+        <!-- <input type="text" style="padding:8px;margin:15px auto;width:30%;"
+            placeholder="Type to filter the name column..." (keyup)="updateFilter($event)" />
+            -->
+    </div>
+    <div class="border-top" style="margin-bottom: 1rem !important;">
+    </div>
+    <div class="col-md-12 mb-3" style="margin-top: 10px;">
+        <ngx-datatable class="material container striped" [rows]="rows" [columnMode]="'flex'" [headerHeight]="50"
+            [footerHeight]="50" rowHeight="auto" [reorderable]="reorderable" [limit]="9">
+            <ngx-datatable-column name="#" [flexGrow]="0.5">
+                <ng-template let-rowIndex="rowIndex" let-row="row" ngx-datatable-cell-template>
+                    {{(rowIndex + 1)}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Bill Date" [flexGrow]="2" [sortable]="true" prop="bill_date">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{ row?.bill_date | titlecase }}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Paid Date" [flexGrow]="2" [sortable]="true" prop="paid_date">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.paid_date}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Unit Consumed" [flexGrow]="2" [sortable]="true" prop="unit_consumed">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.unit_consumed}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Amount" [flexGrow]="2" [sortable]="true" prop="amount">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                    {{row?.amount}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Action" [flexGrow]="2">
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    <span class="btn-cls">
+                        <button mat-button color="primary" (click)='onEdit(row)'>Edit</button>
+                        <button mat-button color="warn" class="btn" (click)='onDelete(row)'>Delete</button>
+                    </span>
+                </ng-template>
+            </ngx-datatable-column>
+
+        </ngx-datatable>
+    </div>
+</div>
